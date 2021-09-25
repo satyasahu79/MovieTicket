@@ -11,7 +11,8 @@ struct BookingView: View {
     
     @State var bookedSeats : [Int] = [1,10,25,45,59,60]
     @State var selectedSeats : [Int] = []
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     @State var date : Date = Date()
     
@@ -24,11 +25,7 @@ struct BookingView: View {
                 
                 Button(action: {
                     
-                    NavigationLink(
-                        destination: Home(),
-                        label: {
-                            Text("")
-                        })
+                    presentationMode.wrappedValue.dismiss()
                     
                     
                 }, label: {
@@ -181,7 +178,7 @@ struct BookingView: View {
                 
                 // Booked
                 RoundedRectangle(cornerRadius: 4, style: .continuous)
-                    .fill(Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)))
+                    .fill(Color(#colorLiteral(red: 0.5058823529, green: 0.6745098039, blue: 0.7333333333, alpha: 1)))
                     .frame(width: 20.0, height: 20.0)
                 
                 
@@ -219,7 +216,7 @@ struct BookingView: View {
                             .foregroundColor(selectedTiem == item ? .black : .white )
                             .padding(.vertical)
                             .padding(.horizontal, 30.0)
-                            .background(Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)).opacity(selectedTiem == item ? 1 : 0.2))
+                            .background(Color(#colorLiteral(red: 0.5058823529, green: 0.6745098039, blue: 0.7333333333, alpha: 1)).opacity(selectedTiem == item ? 1 : 0.2))
                             .cornerRadius(15)
                             
                             .onTapGesture {
@@ -261,7 +258,7 @@ struct BookingView: View {
                         .padding(.horizontal)
                         .padding(.vertical)
                         .frame(maxWidth : .infinity)
-                        .background(Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)))
+                        .background(Color(#colorLiteral(red: 0.5058823529, green: 0.6745098039, blue: 0.7333333333, alpha: 1)))
                         .cornerRadius(15)
                     
                     
@@ -272,7 +269,7 @@ struct BookingView: View {
             .padding()
             
         })
-        .background(Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)).ignoresSafeArea())
+        .background(Color(#colorLiteral(red: 0.168627451, green: 0.2431372549, blue: 0.2862745098, alpha: 1)).ignoresSafeArea())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
@@ -290,12 +287,12 @@ struct SeatView : View {
         
         ZStack  {
             RoundedRectangle(cornerRadius: 6)
-                .stroke(bookedSeats.contains(seat) ? Color.gray: Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)),lineWidth: 1.5)
+                .stroke(bookedSeats.contains(seat) ? Color.gray: Color(#colorLiteral(red: 0.5058823529, green: 0.6745098039, blue: 0.7333333333, alpha: 1)),lineWidth: 1.5)
                 .frame(height: 30.0)
                 
                 .background(
                     
-                    selectedSeats.contains(seat) ? Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)) : Color.clear
+                    selectedSeats.contains(seat) ? Color(#colorLiteral(red: 0.5058823529, green: 0.6745098039, blue: 0.7333333333, alpha: 1)) : Color.clear
                     
                 )
               

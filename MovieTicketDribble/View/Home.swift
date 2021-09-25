@@ -40,7 +40,7 @@ struct Home: View {
                         
                         .overlay(
                             
-                            Text("Detial Movie")
+                            Text("Trending")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                         )
@@ -138,7 +138,7 @@ struct Home: View {
          
         })  // Scroll View Ends
         
-        .background(Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)).ignoresSafeArea())
+        .background(Color(#colorLiteral(red: 0.168627451, green: 0.2431372549, blue: 0.2862745098, alpha: 1)).ignoresSafeArea())
         
         
         
